@@ -56,7 +56,7 @@ function BirthdayPage() {
     <section className="birthday-cover" id="inicio">
       <img className="cover-photo" src={garden} alt="Un paseo entre flores blancas en un jardín lleno de luz" width={1920} height={1024}/>
       <div className="cover-shade"/>
-      <div className="cover-content"><p className="eyebrow cover-eyebrow"><span/>16 DE OCTUBRE · UN DÍA PARA CELEBRARTE</p><h1>Feliz<br/><em>cumpleaños.</em></h1><p className="cover-message">Hay personas que hacen la vida más bonita.<br/>Y tú eres una de ellas.</p><Button variant="botanical" onClick={() => go("tu-dia")}>Un pequeño regalo para ti <ArrowDown size={16}/></Button><p className="cover-signature">Hecho con todo el amor del mundo</p></div>
+      <div className="cover-content"><p className="eyebrow cover-eyebrow"><span/>16 DE OCTUBRE · UN DÍA MUY ESPECIAL</p><h1>Feliz<br/><em>cumpleaños.</em></h1><p className="cover-message">Hay personas que hacen la vida más bonita.<br/>Y tú eres una de ellas.</p><Button variant="botanical" onClick={() => go("tu-dia")}>LO HICE PARA TI, ESPERO TE GUSTE <ArrowDown size={16}/></Button><p className="cover-signature">Hecho con todo el amor del mundo</p></div>
       <span className="cover-index">UN NUEVO AÑO PARA FLORECER</span>
       <Button variant="navigation" size="icon" className="scroll-cue" aria-label="Ir a tu día" onClick={() => go("tu-dia")}><ArrowDown size={18}/></Button>
     </section>
