@@ -10,9 +10,9 @@ import sea from "@/assets/paseo.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "Para ti, con amor · Feliz cumpleaños" },
+    { title: "Para ti, con mucho cariño · Feliz cumpleaños" },
     { name: "description", content: "Una celebración del 16 de octubre entre flores, recuerdos, música y palabras desde el corazón." },
-    { property: "og:title", content: "Para ti, con amor · Feliz cumpleaños" },
+    { property: "og:title", content: "Para ti, con mucho cariño · Feliz cumpleaños" },
     { property: "og:description", content: "Un pequeño jardín de recuerdos para celebrar tu vida este 16 de octubre." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
@@ -25,7 +25,7 @@ const moments = [
   { src: friends, title: "Las risas que se quedan", caption: "Los pequeños grandes momentos.", note: "Por esas conversaciones sin prisa y esas risas que todavía nos acompañan. Por todo lo que somos cuando estamos juntas." },
   { src: sea, title: "Donde siempre queremos volver", caption: "Que nunca falten nuevos caminos.", note: "Que la vida te siga regalando horizontes, atardeceres y lugares en los que puedas ser completamente tú." },
 ];
-const navigation = [{ id: "inicio", label: "Inicio" }, { id: "tu-dia", label: "Tu día" }, { id: "recuerdos", label: "Recuerdos" }, { id: "para-ti", label: "Para ti" }, { id: "musica", label: "Música" }];
+const navigation = [{ id: "inicio", label: "Inicio" }, { id: "tu-dia", label: "Tu día" }, { id: "recuerdos", label: "Recuerdos" }, { id: "Para-ti", label: "Para ti" }, { id: "musica", label: "Música" }];
 
 function BotanicalSprig({ className = "" }: { className?: string }) {
   return <svg className={`botanical-sprig ${className}`} viewBox="0 0 100 180" fill="none" aria-hidden="true"><path d="M48 173C43 122 67 75 63 10"/><path d="M52 142C20 142 12 126 17 109C36 109 49 120 52 142ZM55 118C82 117 94 98 84 83C65 90 57 101 55 118ZM57 93C33 91 23 75 28 61C47 63 56 79 57 93ZM62 68C81 62 89 48 80 34C66 42 61 54 62 68ZM62 43C48 32 48 18 58 8C68 18 68 32 62 43Z"/></svg>;
@@ -48,7 +48,7 @@ function BirthdayPage() {
 
   return <main>
     <header className="floating-header">
-      <a className="wordmark" href="#inicio" onClick={e => { e.preventDefault(); go("inicio"); }}><Leaf size={20} strokeWidth={1.4}/><span>Para ti<span className="wordmark-dot">.</span></span></a>
+      <a className="wordmark" href="#inicio" onClick={e => { e.preventDefault(); go("inicio"); }}><Leaf size={20} strokeWidth={1.4}/><span>Verónica<span className="wordmark-dot">.</span></span></a>
       <nav aria-label="Navegación principal">{navigation.map(item => <Button key={item.id} variant="navigation" onClick={() => go(item.id)} aria-current={active === item.id ? "location" : undefined}>{item.label}</Button>)}</nav>
       <Heart className="nav-heart" size={18} strokeWidth={1.4}/>
     </header>
@@ -56,14 +56,14 @@ function BirthdayPage() {
     <section className="birthday-cover" id="inicio">
       <img className="cover-photo" src={garden} alt="Un paseo entre flores blancas en un jardín lleno de luz" width={1920} height={1024}/>
       <div className="cover-shade"/>
-      <div className="cover-content"><p className="eyebrow cover-eyebrow"><span/>16 DE OCTUBRE · UN DÍA MUY ESPECIAL</p><h1>Feliz<br/><em>cumpleaños.</em></h1><p className="cover-message">Hay personas que hacen la vida más bonita.<br/>Y tú eres una de ellas.</p><Button variant="botanical" onClick={() => go("tu-dia")}>LO HICE PARA TI, ESPERO TE GUSTE <ArrowDown size={16}/></Button><p className="cover-signature">Hecho con todo el amor del mundo</p></div>
-      <span className="cover-index">UN NUEVO AÑO PARA FLORECER</span>
+      <div className="cover-content"><p className="eyebrow cover-eyebrow"><span/>16 DE OCTUBRE · UN DÍA MUY ESPECIAL</p><h1>Feliz<br/><em>cumpleaños.</em></h1><p className="cover-message">Hay personas que hacen la vida más bonita.<br/>Y tú eres una de ellas.</p><Button variant="botanical" onClick={() => go("tu-dia")}>UN REGALO PARA TI<ArrowDown size={16}/></Button><p className="cover-signature">Hecho con mucho cariño</p></div>
+      <span className="cover-index">El tiempo pasa pero tu te vuelves mas bonita y fuerte.</span>
       <Button variant="navigation" size="icon" className="scroll-cue" aria-label="Ir a tu día" onClick={() => go("tu-dia")}><ArrowDown size={18}/></Button>
     </section>
 
     <section className="day-section section-wrap" id="tu-dia">
-      <div className="day-copy"><p className="eyebrow">NO ES UN DÍA CUALQUIERA</p><h2>El mundo es más bonito<br/>desde que <em>estás en él.</em></h2><p>Hay fechas que guardamos en el corazón.<br/>El 16 de octubre es una de ellas.</p><div className="small-dedication"><span className="fine-line"/><span>Hoy, todas las flores son para ti.</span><Leaf size={19} strokeWidth={1}/></div></div>
-      <div className="calendar" aria-label="Calendario de octubre de 2026, cumpleaños el día 16"><BotanicalSprig className="calendar-sprig"/><div className="calendar-heading"><h3>Octubre</h3><span>2026</span></div><div className="calendar-grid">{["L", "M", "M", "J", "V", "S", "D"].map((day, i) => <span className="weekday" key={`w${i}`}>{day}</span>)}{Array.from({ length: 3 }, (_, i) => <span key={`blank${i}`}/>)}{Array.from({ length: 31 }, (_, i) => i + 1).map(day => day === 16 ? <Button key={day} variant="navigation" className="birthday-date" aria-label="16 de octubre: pide un deseo" onClick={() => setWish(true)}>16<Leaf className="date-leaf" size={16}/></Button> : <span key={day}>{day}</span>)}</div><div className="calendar-footer"><Heart size={13}/><span>El día que comenzó tu historia</span></div></div>
+      <div className="day-copy"><p className="eyebrow">NO ES UN DÍA CUALQUIERA</p><h2>El mundo es más bonito<br/>desde que <em>estás en él.</em></h2><p>Hay muchas fechas importantes.<br/>El 16 de octubre es una de ellas.</p><div className="small-dedication"><span className="fine-line"/><span>Hoy, todas las flores son para ti.</span><Leaf size={19} strokeWidth={1}/></div></div>
+      <div className="calendar" aria-label="Calendario de octubre de 2026, cumpleaños el día 16"><BotanicalSprig className="calendar-sprig"/><div className="calendar-heading"><h3>Octubre</h3><span>2026</span></div><div className="calendar-grid">{["L", "M", "M", "J", "V", "S", "D"].map((day, i) => <span className="weekday" key={`w${i}`}>{day}</span>)}{Array.from({ length: 3 }, (_, i) => <span key={`blank${i}`}/>)}{Array.from({ length: 31 }, (_, i) => i + 1).map(day => day === 16 ? <Button key={day} variant="navigation" className="birthday-date" aria-label="16 de octubre: pide un deseo" onClick={() => setWish(true)}>16<Leaf className="date-leaf" size={16}/></Button> : <span key={day}>{day}</span>)}</div><div className="calendar-footer"><Heart size={13}/><span>El día que la vida nos dio un regalo</span></div></div>
     </section>
 
     <section className="memories-section" id="recuerdos"><div className="section-wrap memories-inner"><div className="section-heading"><p className="eyebrow">PEDACITOS DE FELICIDAD</p><h2>La vida, <em>en recuerdos.</em></h2><p>Instantes que pasan. Momentos que se quedan para siempre.</p></div><div className="polaroid-grid">{moments.map((photo, i) => <Button key={photo.src} variant="photo" className={`polaroid polaroid-${i}`} onClick={() => setSelected(i)} aria-label={`Ver recuerdo: ${photo.title}`}><span className="photo-tape"/><img src={photo.src} alt={photo.title} width={768} height={1024} loading="lazy"/><span className="polaroid-caption">{photo.caption}</span><span className="polaroid-number">0{i + 1} <Heart size={12}/></span></Button>)}</div><div className="gallery-end"><span/><Leaf size={19} strokeWidth={1.2}/><span/></div></div></section>
